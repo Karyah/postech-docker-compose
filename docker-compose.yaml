@@ -2,9 +2,9 @@ version: '3.8'
 
 services:
   postgres_msestoque:
+    container_name: postgres_msestoque
     image: postgres:16
     restart: always
-    container_name: postgres_msestoque
     networks:
       - app-net
     environment:
@@ -30,9 +30,9 @@ services:
       SPRING_DATASOURCE_PASSWORD: password
 
   mysql_msproduto:
+    container_name: mysql_msproduto
     image: mysql:8.0
     restart: always
-    container_name: mysql_msproduto
     networks:
       - app-net
     environment:
@@ -59,8 +59,8 @@ services:
       SPRING_DATASOURCE_PASSWORD: password
 
   zookeeper:
-    image: bitnami/zookeeper:latest
     container_name: zookeeper
+    image: bitnami/zookeeper:latest
     networks:
       - app-net
     ports:
@@ -69,8 +69,8 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
 
   kafka:
-    image: bitnami/kafka:3.4.0
     container_name: kafka
+    image: bitnami/kafka:3.4.0
     networks:
       - app-net
     ports:
@@ -83,8 +83,8 @@ services:
       - zookeeper
 
   mongo_mspedido:
-    image: mongo:6.0
     container_name: mongo_mspedido
+    image: mongo:6.0
     restart: always
     networks:
       - app-net
@@ -116,6 +116,7 @@ services:
       - "8084:8084"
 
   postgres_mscliente:
+    container_name: postgres_mscliente
     image: postgres:16
     restart: always
     networks:
@@ -145,6 +146,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: password
 
   postgres_mspagamento:
+    container_name: postgres_mspagamento
     image: postgres:16
     restart: always
     networks:
@@ -158,7 +160,7 @@ services:
 
   mspagamento:
     container_name: mspagamento
-    image: rseite/postech-mspagamento:1.0
+    image:  anacsilva/app-pagamento:2.2
     restart: always
     depends_on:
       - postgres_mspagamento
