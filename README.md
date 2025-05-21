@@ -32,3 +32,6 @@ Deve ser acrescentado o atributo "platform: linux/amd64" em todas os containers.
 - E a coleção já estará pronta!
   
 ![image](https://github.com/user-attachments/assets/8992e5c9-a874-4b9e-80f6-d0836b065ad2)
+
+![postech_tc4_gerenciamento_pedidos drawio](https://github.com/user-attachments/assets/de214cd3-0945-48ed-a658-95ce412deaa8)
+
