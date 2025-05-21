@@ -160,7 +160,7 @@ services:
 
   mspagamento:
     container_name: mspagamento
-    image:  anacsilva/app-pagamento:2.2
+    image: anacsilva/app-pagamento:2.2
     restart: always
     depends_on:
       - postgres_mspagamento
