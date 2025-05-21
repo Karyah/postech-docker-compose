@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "e33575e3-25ab-4d6e-a693-fa27f0f788d3",
+		"name": "Fase 4 Tech Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23797639"
+	},
+	"item": [
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Listar Todos Produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/api/listar/todos"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Produtos Menor ao Maior Preco",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/api/listar/menor-preco"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Produtos Maior ao Menor Preco",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/api/listar/maior-preco"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Produtos Por Categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/api/listar/por-categoria/BEBIDA"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Produto Por SKU",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8082/api/buscar/053uaBE988"
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Caneca Azul Escuro\",\r\n    \"codigoDeBarras\": \"9988164372093\",\r\n    \"descricao\": \"Caneca Azul Com Decoracoes de Neve.\",\r\n    \"fabricante\": null,\r\n    \"preco\": 45.15,\r\n    \"categoria\": \"UTENSILIO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8082/admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Produto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\":\"993roUT903\",\r\n    \"nome\": \"Caneca Azul Escuro\",\r\n    \"codigoDeBarras\": \"9988164372093\",\r\n    \"descricao\": \"Caneca Azul Com Decoracoes de Neve.\",\r\n    \"fabricante\": null,\r\n    \"preco\": 40.15,\r\n    \"categoria\": \"UTENSILIO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8082/admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8082/admin/993roUT903"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pagamento",
+			"item": [
+				{
+					"name": "Criar pagamento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pedidoId\": \"1ba96bbd-203a-47f6-8ddf-7b7b3ad538b6\",\n  \"numeroCartao\": \"12345678901\",\n  \"valorTotal\": 50.0\n}"
+						},
+						"url": "http://localhost:8085/pagamentos"
+					},
+					"response": []
+				},
+				{
+					"name": "Processar Pagamentos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8085/pagamentos/331771fc-a369-426c-bb5b-6ad313504e4b/processar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "atualizarPagamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"pedidoId\": \"1ba96bbd-203a-47f6-8ddf-7b7b3ad538b6\",\n   \"statusPagamento\": \"PROCESSADO_SUCESSO\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8083/api/atualizacao-pagamento"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido Receiver",
+			"item": [
+				{
+					"name": "Post Pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"cliente\": {\r\n    \"cpf\": \"12345678900\"\r\n },\r\n \"produtos\": [\r\n   {\r\n        \"sku\": \"053uaBE988\",\r\n        \"quantidade\": 10\r\n   }\r\n ],\r\n \"dadosPagamento\": {\r\n   \"numeroCartao\": \"12345678901\"\r\n }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8084/api/pedidos"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estoque",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "Adiciona Qtd. Produtos no Estoque",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8086/admin/adiciona-produtos-no-estoque?sku=933TVEL176&quantidade=6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8086",
+									"path": [
+										"admin",
+										"adiciona-produtos-no-estoque"
+									],
+									"query": [
+										{
+											"key": "sku",
+											"value": "933TVEL176"
+										},
+										{
+											"key": "quantidade",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Alterar Informações Produto no Estoque",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"sku\":\"670coHI401\",\r\n    \"quantidadeEstoque\":\"400\",\r\n    \"estoqueMinimo\":\"300\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8086/admin"
+							},
+							"response": []
+						},
+						{
+							"name": "Criar Novo Produto no Estoque",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"sku\":\"1234\",\r\n    \"quantidadeEstoque\":\"50\",\r\n    \"estoqueMinimo\":\"20\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8086/admin"
+							},
+							"response": []
+						},
+						{
+							"name": "Exclui Registro de Estoque Produto",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:8086/admin/1234"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "api",
+					"item": [
+						{
+							"name": "Verifica Quantidade Disponivel",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8086/api/verifica/quantidade-disponivel/670coHI401"
+							},
+							"response": []
+						},
+						{
+							"name": "Verifica Necessidade Reposição",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8086/api/verifica/necessidade-reposicao/106teLI234"
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Qtd. Produtos no Estoque",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8086/api/remove-produtos-no-estoque?sku=670coHI401&quantidade=20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8086",
+									"path": [
+										"api",
+										"remove-produtos-no-estoque"
+									],
+									"query": [
+										{
+											"key": "sku",
+											"value": "670coHI401"
+										},
+										{
+											"key": "quantidade",
+											"value": "20"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
