@@ -1,6 +1,6 @@
 # Testando o projeto:
 
-## Docker Compose
+## Rodar Docker Compose
 A partir do arquivo docker-compose.yaml é possível testar nosso projeto. Nele, existem todas as configurações de ambiente e imagens dos nossos projetos necessárias para rodar o nosso projeto como um todo.
 
 ### Como rodar o docker-compose.yaml?
@@ -10,7 +10,15 @@ A partir do arquivo docker-compose.yaml é possível testar nosso projeto. Nele,
 
 Como estamos subindo também as configurações de banco de dados, é necessário esperar aproximadamente 20 segundos (depois de startado) para que tudo já esteja funcionando!
 
-### Testar endpoints com o Postman
+### Como rodar o docker-compose.yaml no MAC
+Para rodar o docker compose no MAC, será necessário realizar alterações no arquivo.
+Deve ser acrescentado o atributo "platform: linux/amd64" em todas os containers. Por exemplo:
+
+![image](https://github.com/user-attachments/assets/2d3215bc-7cb0-4f7d-adf1-40b37dc102e8)
+
+
+
+## Testar endpoints com o Postman
 - Baixar a coleção do postman disponível na pasta "Postman" desse repositório
 - Procurar a aba de "importar" dentro do Postman em Collections
 
