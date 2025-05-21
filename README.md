@@ -5,7 +5,7 @@ A partir do arquivo docker-compose.yaml é possível testar nosso projeto. Nele,
 
 ### Como rodar o docker-compose.yaml?
 - Baixar o arquivo docker-compose.yaml
-- Abrir o terminal onde está arquivo foi baixado
+- Abrir o terminal onde o arquivo foi baixado
 - Rodar o comando ``` docker compose up -d ```
 
 Como estamos subindo também as configurações de banco de dados, é necessário esperar aproximadamente 20 segundos (depois de startado) para que tudo já esteja funcionando!
