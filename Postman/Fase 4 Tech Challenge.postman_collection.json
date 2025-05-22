@@ -127,16 +127,7 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://localhost:8085/pagamentos/331771fc-a369-426c-bb5b-6ad313504e4b/processar"
+						"url": "http://localhost:8085/pagamentos/6f059bdc-2d03-4b18-a7b9-b83d874f9237/processar"
 					},
 					"response": []
 				}
@@ -175,7 +166,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n \"cliente\": {\r\n    \"cpf\": \"12345678900\"\r\n },\r\n \"produtos\": [\r\n   {\r\n        \"sku\": \"053uaBE988\",\r\n        \"quantidade\": 10\r\n   }\r\n ],\r\n \"dadosPagamento\": {\r\n   \"numeroCartao\": \"12345678901\"\r\n }\r\n}\r\n",
+							"raw": "{\r\n \"cliente\": {\r\n    \"cpf\": \"12345678900\"\r\n },\r\n \"produtos\": [\r\n   {\r\n        \"sku\": \"053uaBE988\",\r\n        \"quantidade\": 50\r\n   }\r\n ],\r\n \"dadosPagamento\": {\r\n   \"numeroCartao\": \"12345678901\"\r\n }\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -279,7 +270,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:8086/api/verifica/quantidade-disponivel/670coHI401"
+								"url": "http://localhost:8086/api/verifica/quantidade-disponivel/053uaBE988"
 							},
 							"response": []
 						},
@@ -288,7 +279,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "http://localhost:8086/api/verifica/necessidade-reposicao/106teLI234"
+								"url": "http://localhost:8086/api/verifica/necessidade-reposicao/053uaBE988"
 							},
 							"response": []
 						},
@@ -298,7 +289,7 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8086/api/remove-produtos-no-estoque?sku=670coHI401&quantidade=20",
+									"raw": "http://localhost:8086/api/remove-produtos-no-estoque?sku=106teLI234&quantidade=20",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -311,7 +302,7 @@
 									"query": [
 										{
 											"key": "sku",
-											"value": "670coHI401"
+											"value": "106teLI234"
 										},
 										{
 											"key": "quantidade",
@@ -319,6 +310,158 @@
 										}
 									]
 								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Clientes",
+					"item": [
+						{
+							"name": "GET /clientes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8081/clientes"
+							},
+							"response": []
+						},
+						{
+							"name": "GET /clientes/{id}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8081/clientes/1"
+							},
+							"response": []
+						},
+						{
+							"name": "GET /clientes/cpf/{cpf}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8081/clientes/cpf/12345678900"
+							},
+							"response": []
+						},
+						{
+							"name": "POST /clientes",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Lucas\",\n    \"cpf\": \"12345678900\",\n    \"email\": \"lucas@email.com\",\n    \"dataNascimento\": \"2000-01-01\",\n    \"endereco\": {\n        \"logradouro\": \"Rua A\",\n        \"numero\": \"123\",\n        \"complemento\": \"Apto 1\",\n        \"bairro\": \"Centro\",\n        \"cidade\": \"SP\",\n        \"estado\": \"SP\",\n        \"cep\": \"12345678\"\n    }\n}"
+								},
+								"url": "http://localhost:8081/clientes"
+							},
+							"response": []
+						},
+						{
+							"name": "PUT clientes/{id}",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Karen\",\r\n    \"cpf\": \"12345678900\",\r\n    \"email\": \"lucas@email.com\",\r\n    \"dataNascimento\": \"2000-01-01\",\r\n    \"endereco\": {\r\n        \"logradouro\": \"Rua A\",\r\n        \"numero\": \"123\",\r\n        \"complemento\": \"Apto 1\",\r\n        \"bairro\": \"Centro\",\r\n        \"cidade\": \"SP\",\r\n        \"estado\": \"SP\",\r\n        \"cep\": \"12345678\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8081/clientes/1"
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE /clientes/{id}",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:8081/clientes/1"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dados de Pagamento",
+					"item": [
+						{
+							"name": "GET  /pagamentos/cliente/{clienteId}",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numeroCartao\":\"00099999\",\r\n    \"nomeTitular\":\"Jose Antonio\", \r\n    \"validade\":\"02/2025\",\r\n    \"cvv\":\"987\",\r\n    \"clienteId\":1\r\n}"
+								},
+								"url": "http://localhost:8081/pagamentos/cliente/1"
+							},
+							"response": []
+						},
+						{
+							"name": "POST /pagamentos",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numeroCartao\":\"00099999\",\r\n    \"nomeTitular\":\"Lucas Roberto\", \r\n    \"validade\":\"02/2025\",\r\n    \"cvv\":\"987\",\r\n    \"clienteId\":2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8081/pagamentos"
+							},
+							"response": []
+						},
+						{
+							"name": "PUT pagamentos/{id}",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numeroCartao\":\"00099999\",\r\n    \"nomeTitular\":\"Jose Roberto\", \r\n    \"validade\":\"02/2025\",\r\n    \"cvv\":\"907\",\r\n    \"clienteId\":1\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8081/pagamentos/1"
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE /pagamentos/{id}",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"numeroCartao\":\"00099999\",\r\n    \"nomeTitular\":\"Jose Roberto\", \r\n    \"validade\":\"02/2025\",\r\n    \"cvv\":\"907\",\r\n    \"clienteId\":1\r\n}\r\n\r\n"
+								},
+								"url": "http://localhost:8081/pagamentos/1"
 							},
 							"response": []
 						}
