@@ -132,7 +132,7 @@ services:
 
   mscliente:
     container_name: mscliente
-    image: luskafer/ms-cliente-service:1.0
+    image: luskafer/ms-cliente-final:latest
     restart: always
     depends_on:
       - postgres_mscliente
